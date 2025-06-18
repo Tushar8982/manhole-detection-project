@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results - Manhole Detection System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        
+        .main-container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-container:hover {
+            transform: translateY(-2px);
+        }
+        
+        .result-title {
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            object-fit: contain;
+        }
+        
+        .result-box {
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 80px;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-box.danger { 
+            background: linear-gradient(45deg, var(--danger-color), #c82333);
+            color: white;
+            border: 3px solid #c82333;
+        }
+        
+        .result-box.success { 
+            background: linear-gradient(45deg, var(--success-color), #218838);
+            color: white;
+            border: 3px solid #218838;
+        }
+        
+        .result-box.warning { 
+            background: linear-gradient(45deg, var(--warning-color), #e0a800);
+            color: #333;
+            border: 3px solid #e0a800;
+        }
+        
+        .result-box.info { 
+            background: linear-gradient(45deg, var(--primary-color), #0056b3);
+            color: white;
+            border: 3px solid #0056b3;
+        }
+        
+        .result-icon {
+            font-size: 2rem;
+            animation: bounce 1s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .confidence-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-action {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary-action {
+            background: linear-gradient(45deg, var(--primary-color), #0056b3);
+            color: white;
+        }
+        
+        .btn-primary-action:hover {
+            background: linear-gradient(45deg, #0056b3, var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+            color: white;
+        }
+        
+        .btn-secondary-action {
+            background: rgba(108, 117, 125, 0.1);
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .btn-secondary-action:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .detection-details {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .detail-value {
+            color: var(--secondary-color);
+        }
+        
+        .no-image {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 576px) {
+            .main-container {
+                margin: 10px;
+                padding: 25px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-action {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h2 class="result-title">Detection Results</h2>
+        
+        {% if image %}
+            <img src="{{ image }}" alt="Analyzed Image" class="result-image">
+        {% else %}
+            <div class="no-image">
+                <i class="bi bi-image" style="font-size: 3rem; opacity: 0.5;"></i>
+                <p>No image available</p>
+            </div>
+        {% endif %}
+        
+        {% if message %}
+            {% if "DANGER" in message or "OPEN" in message.upper() %}
+                <div class="result-box danger">
+                    <i class="bi bi-exclamation-triangle-fill result-icon"></i>
+                    <div>
+                        {{ message.replace('⚠️ DANGER:', '').replace('⚠️', '').strip() }}
+                        {% if "Confidence:" in message %}
+                            <div class="confidence-badge">
+                                {{ message.split("(")[-1].split(")")[0] }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% elif "Safe" in message or "closed" in message.lower() or "✅" in message %}
+                <div class="result-box success">
+                    <i class="bi bi-shield-check-fill result-icon"></i>
+                    <div>
+                        {{ message.replace('✅ Safe:', '').replace('✅', '').strip() }}
+                        {% if "Confidence:" in message %}
+                            <div class="confidence-badge">
+                                {{ message.split("(")[-1].split(")")[0] }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% elif "Uncertain" in message or "Please check manually" in message %}
+                <div class="result-box warning">
+                    <i class="bi bi-question-circle-fill result-icon"></i>
+                    <div>
+                        {{ message }}
+                    </div>
+                </div>
+            {% else %}
+                <div class="result-box info">
+                    <i class="bi bi-info-circle-fill result-icon"></i>
+                    <div>
+                        {{ message }}
+                    </div>
+                </div>
+            {% endif %}
+            
+            {% if "Confidence:" in message %}
+                <div class="detection-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Analysis Status:</span>
+                        <span class="detail-value">Complete</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Detection Method:</span>
+                        <span class="detail-value">AI-Powered Computer Vision</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Confidence Level:</span>
+                        <span class="detail-value">{{ message.split("(")[-1].split(")")[0] }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+        
+        <div class="action-buttons">
+            <a href="/" class="btn-action btn-primary-action">
+                <i class="bi bi-cloud-upload"></i>
+                Analyze Another Image
+            </a>
+            {% if image %}
+                <a href="{{ image }}" target="_blank" class="btn-action btn-secondary-action">
+                    <i class="bi bi-eye"></i>
+                    View Full Image
+                </a>
+            {% endif %}
+        </div>
+        
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(108, 117, 125, 0.2);">
+            <p style="color: var(--secondary-color); font-size: 0.9rem; margin: 0;">
+                <i class="bi bi-shield-check" style="color: var(--success-color);"></i>
+                Powered by AI • Helping keep communities safe
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultBox = document.querySelector('.result-box');
+            if (resultBox) {
+                // Add a subtle pulse animation for danger results
+                if (resultBox.classList.contains('danger')) {
+                    setInterval(() => {
+                        resultBox.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            resultBox.style.transform = 'scale(1)';
+                        }, 200);
+                    }, 2000);
+                }
+            }
+        });
+
+        // Prevent back button issues
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
