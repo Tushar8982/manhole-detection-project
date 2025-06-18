@@ -387,13 +387,13 @@ Found a bug or have suggestions?
 
 | 💬 **Discussion** | 🐛 **Issues** | 📧 **Contact** |
 |:---:|:---:|:---:|
-| [GitHub Discussions](https://github.com/Tushr77/manhole-detection/discussions) | [Report Bug](https://github.com/Tushr77/manhole-detection/issues) | [Email Support](mailto:tushr77@example.com) |
+| [GitHub Discussions](https://github.com/Tushar8982/manhole-detection/discussions) | [Report Bug](https://github.com/Tushar8982/manhole-detection/issues) | [Email Support](mailto:tusharkhandelwal48@gmail.com) |
 
 ### 🌐 Connect With Developer
 
-[![GitHub](https://img.shields.io/badge/GitHub-Tushr77-181717?style=for-the-badge&logo=github)](https://github.com/Tushr77)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/tushr77)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/tushr77)
+[![GitHub](https://img.shields.io/badge/GitHub-Tushr77-181717?style=for-the-badge&logo=github)](https://github.com/Tushar8982)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/tusharkhandelwal77/)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter)](https://x.com/_tushar77)
 
 </div>
 
@@ -441,7 +441,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ![Thank You](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=FF6B35&center=true&vCenter=true&width=800&height=50&lines=🙏+Thank+you+for+making+streets+safer!;🚀+Together+we+can+prevent+accidents;💡+Technology+for+social+good)
 
-*Made with ❤️ for public safety by [Tushr77](https://github.com/Tushr77)*
+*Made with ❤️ for public safety by [Tushr8982](https://github.com/Tushar8982)*
 
 </div>
 
