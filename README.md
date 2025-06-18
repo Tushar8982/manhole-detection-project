@@ -178,15 +178,12 @@ manhole-detection/
 
 ## 🎯 Result Look up 
 
-### Initial Manhole Image 
+### 📷 Before Detection
+![Before](Screenshot 2025-06-13 140604.png)
 
+### ✅ After Detection
+![After](Screenshot 2025-06-13 140641.png)
 
-https://github.com/Tushar8982/manhole-detection-project/blob/main/Screenshot%202025-06-13%20140604.png
-
-
-### After Image 
-
-https://github.com/Tushar8982/manhole-detection-project/blob/main/Screenshot%202025-06-13%20140641.png
 
 ---
 
