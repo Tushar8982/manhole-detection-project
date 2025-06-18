@@ -179,10 +179,10 @@ manhole-detection/
 ## 🎯 Result Look up 
 
 ### 📷 Before Detection
-![Before](Screenshot 2025-06-13 140604.png)
+![Before](Before_Image.png)
 
 ### ✅ After Detection
-![After](Screenshot 2025-06-13 140641.png)
+![After](After_Image.png)
 
 
 ---
