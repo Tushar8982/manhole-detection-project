@@ -372,7 +372,7 @@ git push origin feature/amazing-improvement
 
 Found a bug or have suggestions?
 
-- 🐛 **Bug Reports**: [Create Issue](https://github.com/Tushr77/manhole-detection/issues)
+- 🐛 **Bug Reports**: [Create Issue](https://github.com/Tushar8982/manhole-detection/issues)
 - 💡 **Feature Requests**: Share your ideas!
 - 📖 **Documentation**: Help improve our docs
 - 🧪 **Testing**: Add test cases and scenarios
@@ -441,7 +441,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ![Thank You](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=FF6B35&center=true&vCenter=true&width=800&height=50&lines=🙏+Thank+you+for+making+streets+safer!;🚀+Together+we+can+prevent+accidents;💡+Technology+for+social+good)
 
-*Made with ❤️ for public safety by [Tushr8982](https://github.com/Tushar8982)*
+*Made with ❤️ for public safety by [Tushar8982](https://github.com/Tushar8982)*
 
 </div>
 
